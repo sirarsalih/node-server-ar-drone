@@ -27,7 +27,7 @@ This takes off the drone, and it will start hovering in the air. Land the drone 
 <p><code>land()</code></p>
 There are many other commands you can experiment with, more information provided <a href="https://github.com/felixge/node-ar-drone" target="_blank">here</a>.
 
-<h2>Flying the Drone with REST</h2>
+<h2>Flying the Drone with REST Calls</h2>
 
 Now that we are able to establish a connection to the drone and test fly it, we are now ready to control it with REST calls using Node.js. Start up cmd or terminal and navigate to <code>node_server.js</code>, then execute the following command:
 <p><code>node node_server.js</code></p>
@@ -37,6 +37,16 @@ Try to control the drone by sending GET requests to your local Node.js server:
 
 <ul>
 <li><code>http://localhost:1337/takeoff</code> takes off the drone, starts hovering it for 5 seconds and then lands it.</li>
-<li><code>http://localhost:1337/takeoffAndSpin</code> takes off the drone, starts hovering it for 4 seconds, spins it clockwise then lands it after 1 second.</li>
+<li><code>http://localhost:1337/takeoffAndSpin</code> takes off the drone, starts hovering it for 4 seconds, spins it clockwise and then lands it after 1 second.</li>
 <li><code>http://localhost:1337/land</code> lands the drone immediately.</li>
+</ul>
+
+<h3>Automating the Drone Flight Path</h3>
+
+We can also automate the flying route of the drone, by providing predefined <code>x,y</code> coordinates. You can do this by doing a call to <code>http://localhost:1337/takeoffAndFly</code> and then appending the call with the coordinates. Here is an example:
+
+<ul>
+<li>
+<code>http://localhost:1337/takeoffAndFly?c=8,5&c=4,5</code> takes off the drone, flies it to <code>x,y</code> coordinates <code>[8,5]</code>, <code>[4,5]</code> and then lands it. 
+</li>
 </ul>
