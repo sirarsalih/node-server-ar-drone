@@ -35,4 +35,8 @@ This establishes a connection to the drone and starts up a local express Node.js
 
 Try to control the drone by sending GET requests to your local Node.js server:
 
-<li><code>http://localhost:1337/takeoff</code> takes off the drone, it will start hovering for 5 seconds and then land.</li>
+<ul>
+<li><code>http://localhost:1337/takeoff</code> takes off the drone, starts hovering it for 5 seconds and then lands it.</li>
+<li><code>http://localhost:1337/takeoffAndSpin</code> takes off the drone, starts hovering it for 4 seconds, spins it clockwise then lands it after 1 second.</li>
+<li><code>http://localhost:1337/land</code> lands the drone immediately.</li>
+</ul>
