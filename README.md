@@ -7,7 +7,7 @@ Getting Started
 ====================
 
 1. Download and install <a href="http://nodejs.org/download/" target="_blank">Node.js</a>. 
-2. Start up command line (cmd) or terminal and execute the following command:
+2. Start up cmd or terminal and execute the following command:
 <p><code>npm install -g express</code></p>
 This installs the <a href="http://expressjs.com/" target="_blank">Express</a> framework, which is a lightweight version of Node.js.
 3. Install the ar-drone library by executing the following command:
@@ -22,15 +22,21 @@ Connecting to the Drone
 
 Once the drone is turned on, it will send out WiFi signals like a router. Connect your device (laptop, desktop /w wireless WiFi transmitter, tablet or smart phone) to the drone via WiFi. Like a router, the drone uses the IP <code>192.168.1.1</code> by default.
 
-Start up command line (cmd) or terminal, navigate to <code>repl.js</code> and execute the following command:
+Start up cmd or terminal, navigate to <code>repl.js</code> and execute the following command:
 <p><code>node repl.js</code></p> 
 This establishes a connection to the (default) IP of the drone at <code>192.168.1.1</code>.
 
 Test Flying the Drone
 ====================
 
-Once connected to the drone, in command line (cmd) or terminal, execute the following command:
+While connected to the drone, in cmd or terminal, execute the following command:
 <p><code>takeoff()</code></p>
 This takes off the drone, and it will start hovering in the air. Land the drone by executing the following command:
 <p><code>land()</code></p>
 There are many other commands you can experiment with, more information provided <a href="https://github.com/felixge/node-ar-drone" target="_blank">here</a>.
+
+Flying the Drone with REST
+====================
+
+Now that we were able to establish a connection to the drone and test fly it, we are ready to control it with REST calls using Node.js. Start up cmd or terminal and navigate to <code>node_server</code>, execute the following command:
+<p><code>node node_server.js</code></p>
