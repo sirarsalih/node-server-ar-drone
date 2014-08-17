@@ -12,7 +12,7 @@ Getting Started
 This installs the <a href="http://expressjs.com/" target="_blank">Express</a> framework, which is a lightweight version of Node.js.
 3. Install the ar-drone library by executing the following command:
 <p><code>npm install -g ar-drone</code></p>
-We will use this library to fly the drone.
+This library is used to fly the drone.
 4. Install the ardrone-autonomy library by executing the following command:
 <p><code>npm install -g ardrone-autonomy</code></p>
 This library helps us automate the drone, for instance, enabling us to send predefined flying coordinates.
