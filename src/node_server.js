@@ -2,12 +2,12 @@
  * Created by Sirar on 10.08.2014.
  */
 
-var express = require('C:/Program Files/nodejs/node_modules/express');
+var express = require('express');
 var app = express();
 var port = 1337;
-var arDrone = require('C:/Program Files/nodejs/node_modules/ar-drone');
+var arDrone = require('ar-drone');
 var client  = arDrone.createClient();
-var autonomy = require('C:/Program Files/nodejs/node_modules/ardrone-autonomy');
+var autonomy = require('ardrone-autonomy');
 
 app.get('/', function(request, response){
     response.send("Welcome to my Parrot AR node server!");
