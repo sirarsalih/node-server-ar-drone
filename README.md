@@ -17,17 +17,14 @@ This library is used to fly the drone.
 <p><code>npm install -g ardrone-autonomy</code></p>
 This library helps us automate the drone, for instance, enabling us to send predefined flying coordinates.
 
-Connecting to the Drone
+Connecting to the Drone and Test Flying
 ====================
 
 Once the drone is turned on, it will send out WiFi signals like a router. Connect your device (laptop, desktop /w wireless WiFi transmitter, tablet or smart phone) to the drone via WiFi. Like a router, the drone uses the IP <code>192.168.1.1</code> by default.
 
 Start up cmd or terminal, navigate to <code>repl.js</code> and execute the following command:
 <p><code>node repl.js</code></p> 
-This establishes a connection to the (default) IP of the drone at <code>192.168.1.1</code>.
-
-Test Flying the Drone
-====================
+This establishes a connection to the (default) IP of the drone at <code>192.168.1.1</code>. 
 
 While connected to the drone, in cmd or terminal, execute the following command:
 <p><code>takeoff()</code></p>
