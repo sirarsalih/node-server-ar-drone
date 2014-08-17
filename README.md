@@ -24,9 +24,7 @@ Once the drone is turned on, it will send out WiFi signals like a router. Connec
 
 Start up cmd or terminal, navigate to <code>repl.js</code> and execute the following command:
 <p><code>node repl.js</code></p> 
-This establishes a connection to the (default) IP of the drone at <code>192.168.1.1</code>. 
-
-While connected to the drone, in cmd or terminal, execute the following command:
+This establishes a connection to the (default) IP of the drone at <code>192.168.1.1</code>. While connected to the drone, in cmd or terminal, execute the following command:
 <p><code>takeoff()</code></p>
 This takes off the drone, and it will start hovering in the air. Land the drone by executing the following command:
 <p><code>land()</code></p>
