@@ -41,24 +41,29 @@ app.get('/takeoffAndSpin', function(request, response){
 app.get('/takeoffAndFly', function(request, response){
     var coordinates = request.query.c;
     if(coordinates != undefined) {
-        var mission  = autonomy.createMission();
-        mission.takeoff();
-        for(var i = 0; i < coordinates.length; i++) {
-            var coordinate = coordinates[i];
-            var xy = coordinate.split(",");
-            mission.go({x:xy[0], y:xy[1], z:1.5});
-        }
-        mission.land();
+        var controller = new autonomy.Controller(client, {debug: false});
+        console.log("Taking off...");
+        client.takeoff();
+        client.after(8000, function() {
+            var xy;
+            if (typeof coordinates === 'object') {
+                for (var i = 0; i < coordinates.length; i++) {
+                    var coordinate = coordinates[i];
+                    xy = coordinate.split(",");
+                    console.log("Flying to x=" + xy[0] + " " + "y=" + xy[1]);
+                    controller.go({x: xy[0], y: xy[1]});
+                }
+            } else {
+                xy = coordinates.split(",");
+                console.log("Flying to x=" + xy[0] + " " + "y=" + xy[1]);
+                controller.go({x: xy[0], y: xy[1]});
+            }
+        });
+        client.after(1000, function(){
+            console.log("Landing...");
+            this.land();
+        });
     }
-    mission.run(function (err, result) {
-        if (err) {
-            console.log("Mission failed! Landing drone...");
-            mission.client().stop();
-            mission.client().land();
-        } else {
-            console.log("Mission success!");
-        }
-    });
     response.send("Done!");
 });
 
