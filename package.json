@@ -19,6 +19,7 @@
   "dependencies": {
     "ar-drone": "^0.3.2",
     "ardrone-autonomy": "^0.1.2",
-    "express": "^4.8.6"
+    "express": "^4.8.6",
+    "nodemon": "^1.2.1"
   }
 }
