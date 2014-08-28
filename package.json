@@ -1,0 +1,24 @@
+{
+  "name": "node-server-ar-drone",
+  "version": "0.0.0",
+  "description": "Fly an AR-Drone using REST calls",
+  "main": "src/node_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sirar87/node-server-ar-drone"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirar87/node-server-ar-drone/issues"
+  },
+  "homepage": "https://github.com/sirar87/node-server-ar-drone",
+  "dependencies": {
+    "ar-drone": "^0.3.2",
+    "ardrone-autonomy": "^0.1.2",
+    "express": "^4.8.6"
+  }
+}
