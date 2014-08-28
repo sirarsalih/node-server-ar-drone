@@ -8,7 +8,7 @@ A <a href="http://expressjs.com/" target="_blank">Node.js Express</a> server for
 2. Start up cmd or terminal and execute the following command:
 <p><code>npm install</code></p>
 
-This installs the following frameworks and library:
+This installs the following framework and libraries:
 
 - <a href="http://expressjs.com/" target="_blank">Express</a> framework, which is a lightweight version of Node.js.
 - ar-drone library: This library is used to fly the drone.
