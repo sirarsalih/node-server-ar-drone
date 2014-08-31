@@ -11,8 +11,9 @@ A <a href="http://expressjs.com/" target="_blank">Node.js Express</a> server for
 This installs the following framework and libraries:
 
 - <a href="http://expressjs.com/" target="_blank">Express</a> framework, which is a lightweight version of Node.js.
-- ar-drone library: This library is used to fly the drone.
-- ardrone-autonomy library: This library helps us automate the drone, for instance, enabling us to send predefined flying coordinates.
+- <a href="http://nodemon.io/" target="_blank">nodemon</a>, which monitors changes in the server source code and automatically restarts the server.
+- <a href="https://github.com/felixge/node-ar-drone" target="_blank">node-ar-drone</a> library: This library is used to fly the drone.
+- <a href="https://github.com/eschnou/ardrone-autonomy" target="_blank">ardrone-autonomy</a> library: This library helps us automate the drone, for instance, enabling us to send predefined flying coordinates.
 
 <h2>Connecting to the Drone</h2>
 
