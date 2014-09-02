@@ -1,6 +1,6 @@
 var droneApp = angular.module('droneApp', []);
 
-droneApp.controller('StatusController', function ($scope, $http, $timeout) {
+droneApp.controller('StatusController', function ($scope, $http, $timeout, $rootScope) {
     (function tick() {
         $http.get('/status').success(function (data) {
             $scope.height = data['height'];
@@ -12,9 +12,11 @@ droneApp.controller('StatusController', function ($scope, $http, $timeout) {
             if (data['lowBattery']) {
                 $scope.lowBattery = "LOW BATTERY";
                 $scope.lowBatteryClass = "battery-low";
+                $rootScope.bodyClass = "battery-low";
             } else {
                 $scope.lowBattery = "OK BATTERY";
                 $scope.lowBatteryClass = "battery-ok";
+                $rootScope.bodyClass = "";
             }
 
             $timeout(tick, 1000);
