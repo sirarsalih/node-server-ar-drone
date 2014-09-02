@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title= title
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/control.css')
+        script(type='text/javascript' src='/js/jquery-1.11.1.min.js')
+        script(type='text/javascript' src='/js/nodecopter-client.js')
+    body
+        #header
+            h1= title
+        #content
+            block content
+
+        script(type='text/javascript' src='/js/control.js')
+        script(type='text/javascript' src='/js/bootstrap.min.js')

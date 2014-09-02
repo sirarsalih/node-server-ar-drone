@@ -1,0 +1,74 @@
+extends wide
+
+block content
+    .container
+        .row
+            .col-md-7
+                .row
+                    #droneStream
+                .row.feedback
+                    .status
+
+            .col-md-5.buttons
+                .row.wide
+                    button(class="btn btn-lg btn-danger", data-action="stop").
+                        Stop
+                .row
+                    .btn-group
+                        button(class="btn btn-lg btn-success", data-action="takeoff").
+                            Take Off
+                        button(class="btn btn-lg btn-primary", data-action="land").
+                            Land
+
+                .row
+                    .btn-group
+                        button(class="btn btn-lg btn-default", data-action="up").
+                            &#8613;
+                        button(class="btn btn-lg btn-default", data-action="down").
+                            &#8615;
+
+                .row
+                    .btn-group
+                        button(class="btn btn-lg btn-default", data-action="left").
+                            &#8592;
+                        button(class="btn btn-lg btn-default", data-action="right").
+                            &#8594;
+
+                .row
+                    .btn-group
+                        button(class="btn btn-lg btn-default", data-action="forward").
+                            &#8593;
+                        button(class="btn btn-lg btn-default", data-action="back").
+                            &#8595;
+
+                .row
+                    .btn-group
+                        button(class="btn btn-lg btn-default", data-action="ccw").
+                            &#8634;
+                        button(class="btn btn-lg btn-default", data-action="cw").
+                            &#8635;
+
+                .row
+                    .btn-group
+                        button(class="btn btn-lg btn-default", data-action="flipLeft").
+                            Flip &#8592;
+                        button(class="btn btn-lg btn-default", data-action="flipRight").
+                            Flip &#8594;
+
+                .row
+                    .btn-group
+                        button(class="btn btn-lg btn-default", data-action="flipAhead").
+                            Flip &#8593;
+                        button(class="btn btn-lg btn-default", data-action="flipBehind").
+                            Flip &#8595;
+
+                .row
+                    .btn-group
+                        button(class="btn btn-lg btn-primary", data-action="reset").
+                            Reset
+
+                .row.wide
+                    button(class="btn btn-lg btn-danger", data-action="stop").
+                        Stop
+
+
