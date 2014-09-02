@@ -22,12 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
-var stopAndLand = function() {
-    console.log("Stopping activites and landing...");
-    this.stop();
-    this.land();
-}
-
 app.get('/', function (request, response) {
     response.render('status', {
         title: 'AR Drone',

@@ -22,6 +22,28 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 droneStream.listen(13337, {tcpVideoStream: client.getVideoStream()});
 
+client.config('general:navdata_demo', 'TRUE');
+
+var statusData = {
+    'height': client._lastAltitude,
+    'battery': client._lastBattery,
+    'state': client._lastState,
+    'lowBattery': false
+};
+
+client.on('altitudeChange', function(alt) {
+    statusData['height'] = alt;
+});
+
+client.on('batteryChange', function(batt) {
+    statusData['battery'] = batt;
+});
+
+client.on('lowBattery', function(batt) {
+    statusData['battery'] = batt;
+    statusData['lowBattery'] = true;
+});
+
 app.get('/', function (request, response) {
     response.render('control', {
         title: 'AR Drone'
@@ -29,6 +51,7 @@ app.get('/', function (request, response) {
 });
 
 app.get('/takeoff', function (request, response) {
+    client.disableEmergency();
     client.takeoff();
     response.status(200).end();
 });
@@ -112,6 +135,12 @@ app.get('/dance', function (request, response) {
 app.get('/reset', function (request, response) {
     client.disableEmergency();
     response.status(200).end();
+});
+
+app.get('/status', function (request, response) {
+    statusData['state'] = client._lastState;
+
+    response.json(statusData);
 });
 
 server.listen(port);

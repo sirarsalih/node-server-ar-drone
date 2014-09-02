@@ -2,73 +2,97 @@ extends layout
 
 block content
     .container
+        .row(ng-controller="StatusController")
+            .col-md-3
+                ul.list-group
+                    li.list-group-item
+                        | Height
+                        span.badge
+                            | {{ height }}
+            .col-md-3
+                ul.list-group
+                    li.list-group-item
+                        | Battery
+                        span.badge
+                            | {{ battery }}
+            .col-md-3
+                ul.list-group
+                    li.list-group-item
+                        | Status
+                        span.badge
+                            | {{ state }}
+            .col-md-3
+                ul.list-group
+                    li.list-group-item(class="{{ lowBatteryClass }}")
+                        | {{ lowBattery }}
+
         .row
-            .col-md-7
-                .row
+            .col-md-9
+                .row.stream
                     #droneStream
                 .row.feedback
                     .status
 
-            .col-md-5.buttons
+            .col-md-3.buttons(ng-controller="CommandController")
                 .row.wide
-                    button(class="btn btn-lg btn-danger", data-action="stop").
+                    button(class="btn btn-lg btn-danger", ng-click="sendCommand('stop')").
                         Stop
                 .row
                     .btn-group
-                        button(class="btn btn-lg btn-success", data-action="takeoff").
+                        button(class="btn btn-lg btn-success", ng-click="sendCommand('takeoff')").
                             Take Off
-                        button(class="btn btn-lg btn-primary", data-action="land").
+                        button(class="btn btn-lg btn-primary", ng-click="sendCommand('land')").
                             Land
 
                 .row
                     .btn-group
-                        button(class="btn btn-lg btn-default", data-action="up").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('up')").
                             &#8613;
-                        button(class="btn btn-lg btn-default", data-action="down").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('down')").
                             &#8615;
 
                 .row
                     .btn-group
-                        button(class="btn btn-lg btn-default", data-action="left").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('left')").
                             &#8592;
-                        button(class="btn btn-lg btn-default", data-action="right").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('right')").
                             &#8594;
 
                 .row
                     .btn-group
-                        button(class="btn btn-lg btn-default", data-action="forward").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('forward')").
                             &#8593;
-                        button(class="btn btn-lg btn-default", data-action="back").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('back')").
                             &#8595;
 
                 .row
                     .btn-group
-                        button(class="btn btn-lg btn-default", data-action="ccw").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('ccw')").
                             &#8634;
-                        button(class="btn btn-lg btn-default", data-action="cw").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('cw')").
                             &#8635;
 
                 .row
                     .btn-group
-                        button(class="btn btn-lg btn-default", data-action="flipLeft").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('flipLeft')").
                             Flip &#8592;
-                        button(class="btn btn-lg btn-default", data-action="flipRight").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('flipRight')").
                             Flip &#8594;
 
                 .row
                     .btn-group
-                        button(class="btn btn-lg btn-default", data-action="flipAhead").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('flipAhead')").
                             Flip &#8593;
-                        button(class="btn btn-lg btn-default", data-action="flipBehind").
+                        button(class="btn btn-lg btn-default", ng-click="sendCommand('flipBehind')").
                             Flip &#8595;
 
-                .row
-                    .btn-group
-                        button(class="btn btn-lg btn-primary", data-action="reset").
-                            Reset
+                .row.wide
+                    button(class="btn btn-lg btn-primary", ng-click="sendCommand('reset')").
+                        Reset
 
                 .row.wide
-                    button(class="btn btn-lg btn-danger", data-action="stop").
+                    button(class="btn btn-lg btn-danger", ng-click="sendCommand('stop')").
                         Stop
 
+    script(type='text/javascript' src='/js/angular.min.js')
     script(type='text/javascript' src='/js/control.js')

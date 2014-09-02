@@ -23,7 +23,8 @@
     width: 125px;
 }
 
-.buttons .wide .btn-danger {
+.buttons .wide .btn-danger,
+.buttons .wide .btn-primary {
     width: 250px;
 }
 
@@ -38,4 +39,25 @@
 .status {
     height: 100px;
     overflow-y: scroll;
+}
+
+.battery-ok {
+    background-color: lawngreen;
+}
+
+.battery-low {
+    background-color: red;
+}
+
+li.battery-low {
+    color: white;
+    font-weight: bold;
+}
+
+div.buttons {
+    text-align: center;
+}
+
+div.stream {
+    text-align: center;
 }
