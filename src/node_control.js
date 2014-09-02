@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 droneStream.listen(13337, {tcpVideoStream: client.getVideoStream()});
 
 app.get('/', function (request, response) {
-    response.render('home', {
+    response.render('control', {
         title: 'AR Drone'
     });
 });

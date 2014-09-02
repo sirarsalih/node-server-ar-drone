@@ -1,8 +1,41 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#header {
+    background: no-repeat url("../img/logo.png") right 0 top 0;
+    padding: 0;
+    margin: 0 0 10px;
+    height: 75px;
 }
 
-a {
-  color: #00B7FF;
+#header h1 {
+    padding: 10px;
+    margin: 0;
+}
+
+#menu {
+    float: right;
+    width: 200px;
+}
+
+#content {
+    padding-left: 50px;
+}
+
+.buttons .btn {
+    width: 125px;
+}
+
+.buttons .wide .btn-danger {
+    width: 250px;
+}
+
+.buttons .row {
+    margin-bottom: 5px;
+}
+
+.feedback {
+    overflow: hidden;
+}
+
+.status {
+    height: 100px;
+    overflow-y: scroll;
 }
