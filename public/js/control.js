@@ -2,7 +2,7 @@ var droneApp = angular.module('droneApp', []);
 
 droneApp.controller('StatusController', ['$scope', '$http', '$timeout', '$rootScope', function ($scope, $http, $timeout, $rootScope) {
     (function tick() {
-        $http.get('/status').success(function () {
+        $http.get('/status').success(function (data) {
             $scope.height = data['height'];
 
             $scope.battery = data['battery'];
