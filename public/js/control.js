@@ -1,8 +1,8 @@
 var droneApp = angular.module('droneApp', []);
 
-droneApp.controller('StatusController', function ($scope, $http, $timeout, $rootScope) {
+droneApp.controller('StatusController', ['$scope', '$http', '$timeout', '$rootScope', function ($scope, $http, $timeout, $rootScope) {
     (function tick() {
-        $http.get('/status').success(function (data) {
+        $http.get('/status').success(function () {
             $scope.height = data['height'];
 
             $scope.battery = data['battery'];
@@ -19,23 +19,26 @@ droneApp.controller('StatusController', function ($scope, $http, $timeout, $root
                 $rootScope.bodyClass = "";
             }
 
-            $timeout(tick, 1000);
+            $timeout(tick, 250);
+        }).error(function (data, status, headers, config, statusText) {
+            console.log("Error fetching status: " + status + " " + statusText);
+            $timeout(tick, 250);
         });
     })();
-});
+}]);
 
-droneApp.controller('CommandController', function ($scope, $http) {
-    $scope.sendCommand = function(name) {
+droneApp.controller('CommandController', ['$scope', '$http', function ($scope, $http) {
+    $scope.sendCommand = function (name) {
         $http({
             method: 'GET',
             url: '/' + name
-        }).success(function (data, status, headers, config) {
+        }).success(function () {
             $('.status').prepend('<p>OK: ' + name + '</p>');
-        }).error(function (data, status, headers, config) {
+        }).error(function () {
             $('.status').prepend('<p>Fail: ' + name + '</p>');
         });
     }
-});
+}]);
 
 $(document).ready(function () {
     new NodecopterStream(document.getElementById("droneStream"), { port: 13337});
