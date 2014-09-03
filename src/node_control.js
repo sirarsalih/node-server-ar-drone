@@ -1,28 +1,22 @@
-/**
- * Created by Sirar on 10.08.2014.
- * Modified by Thuc Hoang on 28.08.2014.
- */
-
-var express = require('express');
-var app = express();
-var port = 1337;
-var arDrone = require('ar-drone');
-
-var droneStream = require('dronestream');
-
 var path = require('path');
 
-var server = require("http").createServer(app);
-var client = arDrone.createClient();
+var express = require('express');
+
+var arDrone = require('ar-drone');
+var droneStream = require('dronestream');
+
+var app = express();
+var port = 1337;
 
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-droneStream.listen(13337, {tcpVideoStream: client.getVideoStream()});
-
+var client = arDrone.createClient();
 client.config('general:navdata_demo', 'TRUE');
+
+droneStream.listen(13337, {tcpVideoStream: client.getVideoStream()});
 
 var statusData = {
     'height': client._lastAltitude,
@@ -127,11 +121,6 @@ app.get('/stop', function (request, response) {
     response.status(200).end();
 });
 
-app.get('/dance', function (request, response) {
-    client.animate('doublePhiThetaMixed', 1000);
-    response.status(200).end();
-});
-
 app.get('/reset', function (request, response) {
     client.disableEmergency();
     response.status(200).end();
@@ -143,5 +132,7 @@ app.get('/status', function (request, response) {
     response.json(statusData);
 });
 
-server.listen(port);
-console.log('Node.js express server started on port %s', port);
+app.listen(port, function() {
+    console.log('Node.js express server started on port %s', port);
+});
+
