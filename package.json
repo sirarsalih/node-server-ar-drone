@@ -8,14 +8,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/sirar87/node-server-ar-drone"
+        "url": "https://github.com/itera/node-server-ar-drone"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/sirar87/node-server-ar-drone/issues"
+        "url": "https://github.com/itera/node-server-ar-drone/issues"
     },
-    "homepage": "https://github.com/sirar87/node-server-ar-drone",
+    "homepage": "https://github.com/itera/node-server-ar-drone",
     "dependencies": {
         "ar-drone": "^0.3.2",
         "ardrone-autonomy": "^0.1.2",
