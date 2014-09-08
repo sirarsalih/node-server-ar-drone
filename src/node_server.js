@@ -1,78 +1,102 @@
 /**
  * Created by Sirar on 10.08.2014.
+ * Modified by Thuc Hoang on 28.08.2014.
  */
 
+var path = require('path');
+
 var express = require('express');
-var app = express();
-var port = 1337;
+
 var arDrone = require('ar-drone');
-var client  = arDrone.createClient();
 var autonomy = require('ardrone-autonomy');
 
-app.get('/', function(request, response){
-    response.send("Welcome to my Parrot AR node server!");
-});
+var app = express();
+var port = 1337;
 
-app.get('/takeoff', function(request, response){
-    console.log("Taking off...");
-    client.takeoff();
-    client.after(5000, function(){
-        console.log("Landing...");
-        this.land();
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'jade');
+
+app.use(express.static(path.join(__dirname, '../public')));
+
+var client = arDrone.createClient();
+
+var stopAndLand = function () {
+    console.log("Stop and land");
+    this.stop();
+    this.land();
+};
+
+function renderStatus(response, subtitle) {
+    response.render('status', {
+        title: 'AR Drone',
+        subTitle: subtitle
     });
-    response.send("Done!");
+}
+
+app.get('/', function (request, response) {
+    client.disableEmergency();
+    renderStatus(response, 'Welcome to my Parrot AR node server!');
 });
 
-app.get('/takeoffAndSpin', function(request, response){
+app.get('/takeoff', function (request, response) {
     console.log("Taking off...");
     client.takeoff();
-    client.after(4000, function(){
+
+    client.after(4000, stopAndLand).after(100, function () {
+        renderStatus(response, 'Take off - done!');
+    });
+});
+
+app.get('/takeoffAndSpin', function (request, response) {
+    console.log("Taking off...");
+
+    client.takeoff();
+
+    client.after(4000, function () {
         console.log("Spinning clockwise...");
-        this.clockwise(0.5);
+        this.clockwise(3);
+    }).after(1000, stopAndLand).after(100, function () {
+        renderStatus(response, 'Take off and spin - done!');
     });
-    client.after(1000, function(){
-        console.log("Stopping activites and landing...");
-        this.stop();
-        this.land();
+});
+
+app.get('/mission', function (request, response) {
+    var controller = new autonomy.Controller(client, {debug: false});
+
+    var mission = new autonomy.Mission(client, controller, {});
+
+    mission.takeoff()
+        .zero()       // Sets the current state as the reference
+        .altitude(1)  // Climb to altitude = 1 meter
+        .forward(1)
+        .right(1)
+        .backward(1)
+        .left(1)
+        .hover(1000)  // Hover in place for 1 second
+        .land();
+
+    mission.run(function (err) {
+        if (err) {
+            console.log("Oops, something bad happened: %s", err.message);
+            mission.client().stop();
+            mission.client().land();
+
+            renderStatus(response, 'Mission - failed!');
+        } else {
+            console.log("Mission success!");
+
+            renderStatus(response, 'Mission - done!');
+        }
     });
-    response.send("Done!");
 });
 
-app.get('/takeoffAndFly', function(request, response){
-    var coordinates = request.query.c;
-    if(coordinates != undefined) {
-        var controller = new autonomy.Controller(client, {debug: false});
-        console.log("Taking off...");
-        client.takeoff();
-        client.after(8000, function() {
-            var xy;
-            if (typeof coordinates === 'object') {
-                for (var i = 0; i < coordinates.length; i++) {
-                    var coordinate = coordinates[i];
-                    xy = coordinate.split(",");
-                    console.log("Flying to x=" + xy[0] + " " + "y=" + xy[1]);
-                    controller.go({x: xy[0], y: xy[1]});
-                }
-            } else {
-                xy = coordinates.split(",");
-                console.log("Flying to x=" + xy[0] + " " + "y=" + xy[1]);
-                controller.go({x: xy[0], y: xy[1]});
-            }
-        });
-        client.after(1000, function(){
-            console.log("Landing...");
-            this.land();
-        });
-    }
-    response.send("Done!");
+app.get('/land', function (request, response) {
+    stopAndLand.bind(client)();
+
+    renderStatus(response, 'Land - done!');
 });
 
-app.get('/land', function(request, response){
-    console.log("Stopping activites and landing...");
-    client.stop();
-    client.land();
-    response.send("Done!");
+app.listen(port, function () {
+    console.log('Node.js express server started on port %s', port);
 });
 
-app.listen(port);
-console.log('Node.js express server started on port %s', port);

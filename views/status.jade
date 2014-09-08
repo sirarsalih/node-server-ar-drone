@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    .container
+        .row
+            .col-md-8
+                .jumbotron
+                    h2= subTitle
+            .col-md-4
+                .panel.panel-default
+                    .panel-heading Controls
+                    .panel-body
+                        ul.nav.nav-pills.nav-stacked
+                            li
+                                a(href='/') Home
+                            li
+                                a(href='/takeoff') Take Off
+                            li
+                                a(href='/takeoffAndSpin') Take Off And Spin
+                            li
+                                a(href='/mission') Take Off And Fly Mission
+                            li
+                                a(href='/land') Land
