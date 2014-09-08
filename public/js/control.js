@@ -40,9 +40,11 @@ droneApp.controller('CommandController', ['$scope', '$http', function ($scope, $
     }
 }]);
 
-$(document).ready(function () {
-    new NodecopterStream(document.getElementById("droneStream"), { port: 13337});
-});
+droneApp.controller('VideoController', ['$scope', '$document', function ($scope, $document) {
+    $document.ready(function () {
+        new NodecopterStream($('#droneStream').get(0), { port: 13337 });
+    });
+}]);
 
 
 
