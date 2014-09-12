@@ -1,7 +1,3 @@
-/**
- * Created by Sirar on 10.08.2014.
- */
-
 var express = require('express');
 var app = express();
 var port = 1337;
@@ -29,9 +25,8 @@ app.get('/takeoffAndSpin', function(request, response){
     client.after(4000, function(){
         console.log("Spinning clockwise...");
         this.clockwise(0.5);
-    });
-    client.after(1000, function(){
-        console.log("Stopping activites and landing...");
+    }).after(1000, function(){
+        console.log("Stopping activities and landing...");
         this.stop();
         this.land();
     });
@@ -58,8 +53,8 @@ app.get('/takeoffAndFly', function(request, response){
                 console.log("Flying to x=" + xy[0] + " " + "y=" + xy[1]);
                 controller.go({x: xy[0], y: xy[1]});
             }
-        });
-        client.after(1000, function(){
+        })
+        .after(1000, function(){
             console.log("Landing...");
             this.land();
         });
@@ -68,7 +63,7 @@ app.get('/takeoffAndFly', function(request, response){
 });
 
 app.get('/land', function(request, response){
-    console.log("Stopping activites and landing...");
+    console.log("Stopping activities and landing...");
     client.stop();
     client.land();
     response.send("Done!");
@@ -76,3 +71,6 @@ app.get('/land', function(request, response){
 
 app.listen(port);
 console.log('Node.js express server started on port %s', port);
+
+
+
