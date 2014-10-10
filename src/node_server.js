@@ -67,7 +67,7 @@ app.get('/mission', function (request, response) {
 
     mission.takeoff()
         .zero()       // Sets the current state as the reference
-        .altitude(1)  // Climb to altitude = 1 meter
+        .altitude(2)  // Climb to altitude = 1 meter
         .forward(1)
         .right(1)
         .backward(1)
