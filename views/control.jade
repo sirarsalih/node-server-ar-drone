@@ -34,8 +34,12 @@ block content
                     #droneStream
                 .row.feedback
                     .status(ng-controller="ResponseController as rc")
-                        p(ng-repeat="response in rc.data | reverse")
-                            | {{ response.status }}: {{ response.command }}
+                        table.table-bordered.table-striped.table-hover.table-condensed
+                            tr(ng-repeat="response in rc.data | reverse")
+                                td
+                                    | {{ response.command }}
+                                td
+                                    | {{ response.status }}
 
             .col-md-3.buttons(ng-controller="CommandController as cc")
                 .row(ng-repeat="row in cc.rows" ng-class="row.rowClass")

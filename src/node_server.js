@@ -42,7 +42,7 @@ app.get('/takeoff', function (request, response) {
     console.log("Taking off...");
     client.takeoff();
 
-    client.after(4000, stopAndLand).after(100, function () {
+    client.after(8000, stopAndLand).after(100, function () {
         renderStatus(response, 'Take off - done!');
     });
 });

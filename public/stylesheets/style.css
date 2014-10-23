@@ -61,3 +61,7 @@ div.buttons {
 div.stream {
     text-align: center;
 }
+
+div.status table {
+    width: 100%;
+}
