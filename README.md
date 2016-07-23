@@ -34,9 +34,9 @@ There are many other commands you can experiment with, more information provided
 
 Now that we are able to establish a connection to the drone and test fly it, we are now ready to control it with REST calls using Node.js. Start up cmd or terminal and navigate to <code>node_server.js</code>, then execute the following command:
 <p><code>nodemon node_server.js</code></p>
-This establishes a connection to the drone and starts up a local express Node.js server at port <code>1337</code>. As you can see in <code>node_server.js</code>, we have defined serveral GET requests. Start up your browser and go to <a href="http://localhost:1337" target="_blank">http://localhost:1337</a>, you should be greeted by the message <code>Welcome to my Parrot AR node server!</code>
+This establishes a connection to the drone and starts up a local express Node.js server at port <code>1337</code>. As you can see in <code>node_server.js</code>, we have defined a GET and serveral POST requests. Start up your browser and go to <a href="http://localhost:1337" target="_blank">http://localhost:1337</a>.
 
-Try to control the drone by sending GET requests to your local Node.js server:
+Try to control the drone by sending POST requests to your local Node.js server:
 
 <ul>
 <li><code>http://localhost:1337/takeoff</code> takes off the drone, starts hovering it for 5 seconds and then lands it.</li>
