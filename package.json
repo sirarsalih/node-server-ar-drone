@@ -10,12 +10,19 @@
     "type": "git",
     "url": "https://github.com/sirarsalih/node-server-ar-drone"
   },
-  "author": "Sirar Salih",
+  "author": "Sirar Salih <sirars@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sirarsalih/node-server-ar-drone/issues"
   },
   "homepage": "https://github.com/sirarsalih/node-server-ar-drone",
+  "keywords": [
+    "drone",
+    "ardrone",
+    "parrotardrone",
+    "REST",
+    "fly"   
+  ],
   "dependencies": {
     "ar-drone": "^0.3.2",
     "ardrone-autonomy": "^0.1.2",
