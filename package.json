@@ -1,25 +1,28 @@
 {
   "name": "node-server-ar-drone",
-  "version": "0.0.0",
-  "description": "Fly an AR-Drone using REST calls",
-  "main": "src/node_server.js",
+  "version": "1.0.0",
+  "description": "Fly a Parrot AR Drone using REST calls.",
+  "main": "src/node_server.js",    
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "spec/node_server_spec.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sirar87/node-server-ar-drone"
+    "url": "https://github.com/sirarsalih/node-server-ar-drone"
   },
-  "author": "",
+  "author": "Sirar Salih",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sirar87/node-server-ar-drone/issues"
+    "url": "https://github.com/sirarsalih/node-server-ar-drone/issues"
   },
-  "homepage": "https://github.com/sirar87/node-server-ar-drone",
+  "homepage": "https://github.com/sirarsalih/node-server-ar-drone",
   "dependencies": {
     "ar-drone": "^0.3.2",
     "ardrone-autonomy": "^0.1.2",
     "express": "^4.8.6",
-    "nodemon": "^1.2.1"
+    "nodemon": "^1.2.1",
+    "jasmine-node": "^1.14.5",
+    "jasmine-node-karma": "^1.6.1",
+    "request": "^2.51.0"
   }
 }
