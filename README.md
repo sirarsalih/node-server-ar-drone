@@ -53,3 +53,12 @@ We can also automate the flight path of the drone, by providing predefined <code
 <code>http://localhost:1337/takeoffAndFly?c=8,5&c=4,5</code> takes off the drone, flies it to <code>x,y</code> coordinates <code>[8,5]</code>, <code>[4,5]</code> and then lands it. 
 </li>
 </ul>
+
+<h2>Running the Tests</h2>
+
+Navigate to <code>node_server_spec.js</code>, start up cmd or terminal and execute the following:
+
+<p><code>jasmine-node-karma node_server_spec.js</code></p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Parrot AR Drone 2.0 airborne with REST! <a href="http://t.co/FXshzqbwaQ">http://t.co/FXshzqbwaQ</a> CC: <a href="https://twitter.com/IteraASA">@IteraASA</a> <a href="https://twitter.com/hashtag/Fagkveld?src=hash">#Fagkveld</a> <a href="https://twitter.com/hashtag/Nodejs?src=hash">#Nodejs</a></p>&mdash; Sirar Salih (@sirarsalih) <a href="https://twitter.com/sirarsalih/status/505655337564000256">August 30, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
