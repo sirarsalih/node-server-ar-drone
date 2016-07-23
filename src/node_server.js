@@ -6,20 +6,20 @@ var client  = arDrone.createClient();
 var autonomy = require('ardrone-autonomy');
 
 app.get('/', function(request, response){
-    response.send("Welcome to my Parrot AR node server!");
+    response.status(200).json({serverup:true});
 });
 
-app.get('/takeoff', function(request, response){
+app.post('/takeoff', function(request, response){
     console.log("Taking off...");
     client.takeoff();
     client.after(5000, function(){
         console.log("Landing...");
         this.land();
     });
-    response.send("Done!");
+    response.status(200).json({landed:true});
 });
 
-app.get('/takeoffAndSpin', function(request, response){
+app.post('/takeoffAndSpin', function(request, response){
     console.log("Taking off...");
     client.takeoff();
     client.after(4000, function(){
@@ -30,43 +30,42 @@ app.get('/takeoffAndSpin', function(request, response){
         this.stop();
         this.land();
     });
-    response.send("Done!");
+    response.status(200).json({landed:true});
 });
 
-app.get('/takeoffAndFly', function(request, response){
+app.post('/takeoffAndFly', function(request, response){
     var coordinates = request.query.c;
-    if(coordinates != undefined) {
-        var controller = new autonomy.Controller(client, {debug: false});
-        console.log("Taking off...");
-        client.takeoff();
-        client.after(8000, function() {
-            var xy;
-            if (typeof coordinates === 'object') {
-                for (var i = 0; i < coordinates.length; i++) {
-                    var coordinate = coordinates[i];
-                    xy = coordinate.split(",");
-                    console.log("Flying to x=" + xy[0] + " " + "y=" + xy[1]);
-                    controller.go({x: xy[0], y: xy[1]});
-                }
-            } else {
-                xy = coordinates.split(",");
+    if(coordinates == undefined) return response.status(400).json({landed:false});    
+    var controller = new autonomy.Controller(client, {debug: false});
+    console.log("Taking off...");
+    client.takeoff();
+    client.after(8000, function() {
+        var xy;
+        if (typeof coordinates === 'object') {
+            for (var i = 0; i < coordinates.length; i++) {
+                var coordinate = coordinates[i];
+                xy = coordinate.split(",");
                 console.log("Flying to x=" + xy[0] + " " + "y=" + xy[1]);
                 controller.go({x: xy[0], y: xy[1]});
             }
-        })
-        .after(1000, function(){
-            console.log("Landing...");
-            this.land();
-        });
-    }
-    response.send("Done!");
+        } else {
+            xy = coordinates.split(",");
+            console.log("Flying to x=" + xy[0] + " " + "y=" + xy[1]);
+            controller.go({x: xy[0], y: xy[1]});
+        }
+    })
+    .after(1000, function(){
+        console.log("Landing...");
+        this.land();
+    });
+    response.status(200).json({landed:true});
 });
 
-app.get('/land', function(request, response){
+app.post('/land', function(request, response){
     console.log("Stopping activities and landing...");
     client.stop();
     client.land();
-    response.send("Done!");
+    response.status(200).json({landed:true});
 });
 
 app.listen(port);

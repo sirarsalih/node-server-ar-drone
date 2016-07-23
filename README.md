@@ -14,6 +14,9 @@ This installs the following framework and libraries:
 - <a href="http://nodemon.io/" target="_blank">nodemon</a>, which monitors changes in the server source code and automatically restarts the server.
 - <a href="https://github.com/felixge/node-ar-drone" target="_blank">node-ar-drone</a> library: This library is used to fly the drone.
 - <a href="https://github.com/eschnou/ardrone-autonomy" target="_blank">ardrone-autonomy</a> library: This library helps us automate the drone, for instance, enabling us to send predefined flying coordinates.
+- <a href="https://github.com/mhevery/jasmine-node" target="_blank">jasmine-node</a> framework, which is used for writing the tests.
+- <a href="https://github.com/HuzuTech/jasmine-node-karma" target="_blank">jasmine-node-karma</a> framework, which is used for running the tests.
+- <a href="https://github.com/request/request" target="_blank">request</a> http client, which is used to do mimic REST requests in the tests. 
 
 <h2>Connecting to the Drone</h2>
 

@@ -11,7 +11,7 @@
     "url": "https://github.com/sirarsalih/node-server-ar-drone"
   },
   "author": "Sirar Salih",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sirarsalih/node-server-ar-drone/issues"
   },
