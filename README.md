@@ -2,6 +2,8 @@
 
 A <a href="http://expressjs.com/" target="_blank">Node.js Express</a> server for the <a href="http://ardrone2.parrot.com/" target="_blank">Parrot AR Drone 2.0</a>. The server uses the <a href="https://github.com/felixge/node-ar-drone" target="_blank">node-ar-drone</a> and <a href="https://github.com/eschnou/ardrone-autonomy" target="_blank">ardrone-autonomy</a> libraries to fly the drone with REST calls.
 
+[![ScreenShot](https://github.com/sirarsalih/sirarsalih.github.io/blob/master/public/img/rest_drone.PNG)](https://vimeo.com/104703586)
+
 <h2>Getting Started</h2>
 
 1. Download and install <a href="http://nodejs.org/download/" target="_blank">Node.js</a>. 
@@ -59,6 +61,3 @@ We can also automate the flight path of the drone, by providing predefined <code
 Navigate to <code>node_server_spec.js</code>, start up cmd or terminal and execute the following:
 
 <p><code>jasmine-node-karma node_server_spec.js</code></p>
-
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Parrot AR Drone 2.0 airborne with REST! <a href="http://t.co/FXshzqbwaQ">http://t.co/FXshzqbwaQ</a> CC: <a href="https://twitter.com/IteraASA">@IteraASA</a> <a href="https://twitter.com/hashtag/Fagkveld?src=hash">#Fagkveld</a> <a href="https://twitter.com/hashtag/Nodejs?src=hash">#Nodejs</a></p>&mdash; Sirar Salih (@sirarsalih) <a href="https://twitter.com/sirarsalih/status/505655337564000256">August 30, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
