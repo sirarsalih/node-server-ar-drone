@@ -3,10 +3,12 @@
  */
 
 var request = require('request');
+var NodeServerArDrone = require("../src/node_server");
+var NodeServerArDrone = new NodeServerArDrone();
 
 describe("The Parrot AR Drone node server",function(){
     
-    it("should be up and running.", function(done) {
+    it("should be up and running.", function(done) {        
         request("http://localhost:1337/", function(error, response, body){
             expect(response.statusCode).toEqual(200);
             done();
