@@ -23,7 +23,7 @@ This installs the following framework and libraries:
 
 <h2>Connecting to the Drone</h2>
 
-Once the drone is turned on, it will send out WiFi signals like a router. Connect your device (laptop, desktop /w wireless WiFi transmitter, tablet or smart phone) to the drone via WiFi. Like a router, the drone uses the IP <code>192.168.1.1</code> by default.
+Once the drone is turned on, it will send out WiFi signals like a router. Connect your device (laptop, desktop /w wireless WiFi transmitter, tablet or smart phone) to the drone via WiFi. Like a router, the drone uses the IP ```192.168.1.1``` by default.
 
 Start up cmd or terminal, navigate to ```repl.js``` and execute the following command:
 
