@@ -51,7 +51,7 @@ Try to control the drone by sending POST requests to your local Node.js server:
 
 <h3>Automating the Drone Flight Path</h3>
 
-We can also automate the flight path of the drone, by providing predefined <code>x,y</code> coordinates. You can do this by doing a call to <code>http://localhost:1337/takeoffAndFly</code> and then appending the call with the coordinates. Here is an example:
+We can also automate the flight path of the drone, by providing predefined <code>x,y</code> coordinates. You can do this by doing a call to [http://localhost:1337/takeoffAndFly](http://localhost:1337/takeoffAndFly) and then appending the call with the coordinates. Here is an example:
 
 <ul>
 <li>

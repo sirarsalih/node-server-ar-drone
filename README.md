@@ -1,6 +1,6 @@
 <h1>node-server-ar-drone</h1>
 
-A <a href="http://expressjs.com/" target="_blank">Node.js Express</a> server for the <a href="http://ardrone2.parrot.com/" target="_blank">Parrot AR Drone 2.0</a>. The server uses the <a href="https://github.com/felixge/node-ar-drone" target="_blank">node-ar-drone</a> and <a href="https://github.com/eschnou/ardrone-autonomy" target="_blank">ardrone-autonomy</a> libraries to fly the drone with REST calls.
+A [Node.js Express](http://expressjs.com/) server for the [Parrot AR Drone 2.0](http://ardrone2.parrot.com/). The server uses the [node-ar-drone](https://github.com/felixge/node-ar-drone) and [ardrone-autonomy](https://github.com/eschnou/ardrone-autonomy) libraries to fly the drone with REST calls.
 
 <a href="https://vimeo.com/104703586"><img src="https://raw.githubusercontent.com/sirarsalih/sirarsalih.github.io/master/public/img/rest_drone.PNG"/></a>
 
@@ -16,7 +16,7 @@ Once the drone is turned on, it will send out WiFi signals like a router. Connec
 var NodeServerArDrone = require('node-server-ar-drone');
 var nsArDrone = new NodeServerArDrone();
 ```
-Start up your browser and go to <a href="http://localhost:1337" target="_blank">http://localhost:1337</a>. Control the drone by sending POST requests to your local node server:
+Start up your browser and go to [http://localhost:1337](http://localhost:1337). Control the drone by sending POST requests to your local node server:
 
 <ul>
 <li><code>http://localhost:1337/takeoff</code> takes off the drone, starts hovering it for 5 seconds and then lands it.</li>
@@ -24,7 +24,7 @@ Start up your browser and go to <a href="http://localhost:1337" target="_blank">
 <li><code>http://localhost:1337/land</code> lands the drone immediately.</li>
 </ul>
 
-We can also automate the flight path of the drone, by providing predefined <code>x,y</code> coordinates. You can do this by doing a call to <code>http://localhost:1337/takeoffAndFly</code> and then appending the call with the coordinates. Here is an example:
+We can also automate the flight path of the drone, by providing predefined <code>x,y</code> coordinates. You can do this by doing a call to [http://localhost:1337/takeoffAndFly](http://localhost:1337/takeoffAndFly) and then appending the call with the coordinates. Here is an example:
 
 <ul>
 <li>
