@@ -19,9 +19,12 @@
   "keywords": [
     "drone",
     "ardrone",
+    "autonomy",
+    "autonomousdrone",
     "parrotardrone",
     "REST",
-    "fly"
+    "fly",
+    "iot"
   ],
   "dependencies": {
     "ar-drone": "^0.3.2",
