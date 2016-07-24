@@ -31,3 +31,7 @@ We can also automate the flight path of the drone, by providing predefined <code
 <code>http://localhost:1337/takeoffAndFly?c=8,5&c=4,5</code> takes off the drone, flies it to <code>x,y</code> coordinates <code>[8,5]</code>, <code>[4,5]</code> and then lands it. 
 </li>
 </ul>
+
+## Other Topics
+
+* [Using from Source](docs/using-from-source.md)
