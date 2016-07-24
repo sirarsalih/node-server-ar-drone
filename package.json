@@ -1,6 +1,6 @@
 {
   "name": "node-server-ar-drone",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Fly a Parrot AR Drone 2.0 using REST calls.",
   "main": "src/node_server.js",
   "scripts": {
