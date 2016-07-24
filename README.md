@@ -2,7 +2,7 @@
 
 A <a href="http://expressjs.com/" target="_blank">Node.js Express</a> server for the <a href="http://ardrone2.parrot.com/" target="_blank">Parrot AR Drone 2.0</a>. The server uses the <a href="https://github.com/felixge/node-ar-drone" target="_blank">node-ar-drone</a> and <a href="https://github.com/eschnou/ardrone-autonomy" target="_blank">ardrone-autonomy</a> libraries to fly the drone with REST calls.
 
-[![ScreenShot](https://github.com/sirarsalih/sirarsalih.github.io/blob/master/public/img/rest_drone.PNG)](https://vimeo.com/104703586)
+<a href="https://vimeo.com/104703586"><img src="https://github.com/sirarsalih/sirarsalih.github.io/blob/master/public/img/rest_drone.PNG"/></a>
 
 <h2>Getting Started</h2>
 
