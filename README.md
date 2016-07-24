@@ -8,9 +8,9 @@ A <a href="http://expressjs.com/" target="_blank">Node.js Express</a> server for
 
 1. Download and install <a href="http://nodejs.org/download/" target="_blank">Node.js</a>. 
 2. Start up cmd or terminal and execute the following command:
-
-```npm install```
-
+<br/><br/>
+<code>npm install</code>
+<br/><br/>
 This installs the following framework and libraries:
 
 - <a href="http://expressjs.com/" target="_blank">Express</a> framework, which is a lightweight version of Node.js.
@@ -30,13 +30,13 @@ Start up cmd or terminal, navigate to ```repl.js``` and execute the following co
 ```nodemon repl.js```
 
 This establishes a connection to the (default) IP of the drone at ```192.168.1.1```. While connected to the drone, in cmd or terminal, execute the following command:
-<br/>
+<br/><br/>
 <code>takeoff()</code>
-<br/>
+<br/><br/>
 This takes off the drone, and it will start hovering in the air. Land the drone by executing the following command:
-<br/>
+<br/><br/>
 <code>land()</code>
-<br/>
+<br/><br/>
 There are many other commands you can experiment with, more information provided <a href="https://github.com/felixge/node-ar-drone" target="_blank">here</a>.
 
 <h2>Flying the Drone with REST Calls</h2>
