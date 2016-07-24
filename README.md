@@ -31,11 +31,15 @@ Start up cmd or terminal, navigate to ```repl.js``` and execute the following co
 
 This establishes a connection to the (default) IP of the drone at ```192.168.1.1```. While connected to the drone, in cmd or terminal, execute the following command:
 
-```takeoff()```
+```
+takeoff()
+```
 
 This takes off the drone, and it will start hovering in the air. Land the drone by executing the following command:
 
-```land()```
+```
+land()
+```
 
 There are many other commands you can experiment with, more information provided <a href="https://github.com/felixge/node-ar-drone" target="_blank">here</a>.
 
