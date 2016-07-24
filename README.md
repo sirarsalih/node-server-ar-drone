@@ -4,6 +4,34 @@ A <a href="http://expressjs.com/" target="_blank">Node.js Express</a> server for
 
 <a href="https://vimeo.com/104703586"><img src="https://raw.githubusercontent.com/sirarsalih/sirarsalih.github.io/master/public/img/rest_drone.PNG"/></a>
 
+<h2>Installation</h2>
+
+```
+npm install node-server-ar-drone
+```
+
+<h2>Usage</h2>
+Once the drone is turned on, it will send out WiFi signals like a router. Connect your device (laptop, desktop /w wireless WiFi transmitter, tablet or smart phone) to the drone via WiFi. Like a router, the drone uses the IP ```192.168.1.1``` by default. Once connected, then simply:
+```
+var NodeServerArDrone = require('node-server-ar-drone');
+var nsArDrone = new NodeServerArDrone();
+```
+Start up your browser and go to <a href="http://localhost:1337" target="_blank">http://localhost:1337</a>. Control the drone by sending POST requests to your local node server:
+
+<ul>
+<li><code>http://localhost:1337/takeoff</code> takes off the drone, starts hovering it for 5 seconds and then lands it.</li>
+<li><code>http://localhost:1337/takeoffAndSpin</code> takes off the drone, starts hovering it for 4 seconds, spins it clockwise and then lands it after 1 second.</li>
+<li><code>http://localhost:1337/land</code> lands the drone immediately.</li>
+</ul>
+
+We can also automate the flight path of the drone, by providing predefined <code>x,y</code> coordinates. You can do this by doing a call to <code>http://localhost:1337/takeoffAndFly</code> and then appending the call with the coordinates. Here is an example:
+
+<ul>
+<li>
+<code>http://localhost:1337/takeoffAndFly?c=8,5&c=4,5</code> takes off the drone, flies it to <code>x,y</code> coordinates <code>[8,5]</code>, <code>[4,5]</code> and then lands it. 
+</li>
+</ul>
+
 <h2>Getting Started</h2>
 
 1. Download and install <a href="http://nodejs.org/download/" target="_blank">Node.js</a>. 
