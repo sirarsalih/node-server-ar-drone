@@ -8,7 +8,8 @@ A <a href="http://expressjs.com/" target="_blank">Node.js Express</a> server for
 
 1. Download and install <a href="http://nodejs.org/download/" target="_blank">Node.js</a>. 
 2. Start up cmd or terminal and execute the following command:
-<p><code>npm install</code></p>
+
+```npm install```
 
 This installs the following framework and libraries:
 
