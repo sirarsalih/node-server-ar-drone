@@ -11,12 +11,14 @@ npm install node-server-ar-drone
 ```
 
 <h2>Usage</h2>
-Once the drone is turned on, it will send out WiFi signals like a router. Connect your device (laptop, desktop /w wireless WiFi transmitter, tablet or smart phone) to the drone via WiFi. Like a router, the drone uses the IP ```192.168.1.1``` by default. Once connected, simply:
+Once the drone is turned on, it will send out WiFi signals like a router. Connect your device (laptop, desktop /w wireless WiFi transmitter, tablet or smart phone) to the drone via WiFi. Like a router, the drone uses the IP <code>192.168.1.1</code> by default. Once connected, simply:
+<br/>
 ```
 var NodeServerArDrone = require('node-server-ar-drone');
 var nsArDrone = new NodeServerArDrone();
 ```
-Start up your browser and go to [http://localhost:1337](http://localhost:1337). Control the drone by sending POST requests to your local node server:
+<br/>
+Start up your browser and go to <code>http://localhost:1337</code>. Control the drone by sending POST requests to your local node server:
 
 <ul>
 <li><code>http://localhost:1337/takeoff</code> takes off the drone, starts hovering it for 5 seconds and then lands it.</li>
@@ -33,4 +35,4 @@ We can also automate the flight path of the drone, by providing predefined <code
 </ul>
 
 <h2>Other Topics</h2>
-* [Using from Source](docs/using-from-source.md)
+* [Using from source code](using-from-source.md)
