@@ -39,7 +39,7 @@ Now that we are able to establish a connection to the drone and test fly it, we 
 
 ```nodemon node_server.js```
 
-This establishes a connection to the drone and starts up a local express Node.js server at port ```1337```. As you can see in ```node_server.js```, we have defined a GET and serveral POST requests. Start up your browser and go to <a href="http://localhost:1337" target="_blank">http://localhost:1337</a>.
+This establishes a connection to the drone and starts up a local express Node.js server at port ```1337```. As you can see in ```node_server.js```, we have defined a GET and serveral POST requests. Start up your browser and go to <code>http://localhost:1337</code>.
 
 Try to control the drone by sending POST requests to your local Node.js server:
 
@@ -51,7 +51,7 @@ Try to control the drone by sending POST requests to your local Node.js server:
 
 <h3>Automating the Drone Flight Path</h3>
 
-We can also automate the flight path of the drone, by providing predefined <code>x,y</code> coordinates. You can do this by doing a call to [http://localhost:1337/takeoffAndFly](http://localhost:1337/takeoffAndFly) and then appending the call with the coordinates. Here is an example:
+We can also automate the flight path of the drone, by providing predefined <code>x,y</code> coordinates. You can do this by doing a call to <code>http://localhost:1337/takeoffAndFly</code> and then appending the call with the coordinates. Here is an example:
 
 <ul>
 <li>
